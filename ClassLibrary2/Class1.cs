@@ -6,64 +6,103 @@ using System.Threading.Tasks;
 
 namespace Bankgiro
 {
-    public class BetalningsPost
+    public class BetalningsPost :Post
     {
         public string TrKod = "14";
         //Mottagares Bankgironummer, högerställs till och fylls med nollor tills längden är 10 tecken
+        private string _BGnumber;
         public string BGNumber
         {  
              set 
              {
-             BGNumber = value;
-             }
+                if(this.lengthValidator(value, 10)){
+                     char pad = '0';
+                    _BGnumber = value.PadLeft(10, pad);
+                }
+            }
             get
             {
-                char pad = '0';
-                return BGNumber.PadLeft(10,pad);
+                return _BGnumber;
             }
         } 
         
         //OCR-referens ELLER fakturanummer, fylls med blanksteg tills total längd = 25 tecken
+        private string _OCR;
         public string OCR
         {
             set
             {
-                OCR = value;
+                if(this.lengthValidator(value, 25)){
+                    _OCR = value.PadRight(25);
+                }
+                
 }
             get
             {
-                return OCR.PadLeft(25);
+                return _OCR;
 }
         }
-
+        private string _belopp;
         public string belopp{
         set
         {
-            char pad = '0';
-            belopp = value.PadLeft(12,pad);
+            if (this.lengthValidator(value, 12))
+            {
+                char pad = '0';
+                _belopp = value.PadLeft(12, pad);
+            }
         }
         get
         {
-            return belopp;
+            return _belopp;
         }
 
-}    
+}
 
 
-
+        private string _payDate;
         public string payDate
         {
             get
             {
-                return payDate;
+                return _payDate;
             }
             set
             {
                 if (value.Length == 6)
                 {
-                    payDate = value;
+                    _payDate = value;
                 }else{
-                    Console.WriteLine("date must be 6digits yyMMdd or 'GENAST' ");
+                    Console.WriteLine("date must be 6 digits 'yyMMdd' or 'GENAST' ");
+                }
+            }
+        }
+
+        private string _info;
+        public string info
+        {
+            get {
+                return _info;
+            }
+            set {
+                if (this.lengthValidator(value, 20))
+                {
+                    _info = value.PadRight(20);
+                }
+            }
+        }
+
+        public string Post {
+            get {
+                var _post = TrKod + _BGnumber + _OCR + _belopp + _payDate + "     " + _info;
+                if (_post.Length == 80)
+                {
+                    return _post;
+
+                }
+                else
+                {
+                    return "Some parameter was inserted incorrectly, try again";
                 }
             }
         }

@@ -10,6 +10,13 @@ namespace Bankgiro
     {
         public string TrKod;
         
-
+        protected bool lengthValidator(string Val,int Len)
+        {
+            if(Val.Length > Len){
+                throw new InvalidOperationException();
+            }else{
+                return true;
+            }    
+        }
     }
 }
