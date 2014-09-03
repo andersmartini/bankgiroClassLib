@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary2
+namespace Bankgiro
 {
-    class Class2
+    abstract class Post
     {
+        public virtual string TrKod
+        
+        public bool verifyTK(){ //verify that TrKod is a 2digits long
+            if(this.TrKod.Length===2){
+                return true
+            }else{
+                return false
+            }
+        }
+
     }
 }
