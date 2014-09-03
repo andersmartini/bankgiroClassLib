@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bankgiro
 {
-    abstract class Post
+    public class Post
     {
-        public virtual string TrKod
+        public string TrKod;
         
-        public bool verifyTK(){ //verify that TrKod is a 2digits long
-            if(this.TrKod.Length===2){
-                return true
-            }else{
-                return false
-            }
-        }
 
     }
 }
