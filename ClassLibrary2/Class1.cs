@@ -15,10 +15,7 @@ namespace Bankgiro
         {  
              set 
              {
-                if(this.lengthValidator(value, 10)){
-                     char pad = '0';
-                    _BGnumber = value.PadLeft(10, pad);
-                }
+                 _BGnumber = this.ensureCorrectLength(value, 10, "left", '0');
             }
             get
             {
@@ -32,11 +29,9 @@ namespace Bankgiro
         {
             set
             {
-                if(this.lengthValidator(value, 25)){
-                    _OCR = value.PadRight(25);
-                }
+                _OCR = this.ensureCorrectLength(value, 25, "right", ' ');
                 
-}
+            }
             get
             {
                 return _OCR;
@@ -46,11 +41,7 @@ namespace Bankgiro
         public string belopp{
         set
         {
-            if (this.lengthValidator(value, 12))
-            {
-                char pad = '0';
-                _belopp = value.PadLeft(12, pad);
-            }
+            _belopp = this.ensureCorrectLength(value, 12, "left",'0');
         }
         get
         {
@@ -85,10 +76,7 @@ namespace Bankgiro
                 return _info;
             }
             set {
-                if (this.lengthValidator(value, 20))
-                {
-                    _info = value.PadRight(20);
-                }
+                _info = this.ensureCorrectLength(value, 20, "right", ' ');
             }
         }
 

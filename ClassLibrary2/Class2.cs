@@ -9,13 +9,23 @@ namespace Bankgiro
     public class Post
     {
         public string TrKod;
-        
-        protected bool lengthValidator(string Val,int Len)
+        protected string ensureCorrectLength(int Len)
+        {
+            return ensureCorrectLength(" ", Len, "left", ' ');
+        }
+        protected string ensureCorrectLength(string Val,int Len, string side, char pad)
         {
             if(Val.Length > Len){
                 throw new InvalidOperationException();
-            }else{
-                return true;
+            }
+            else if (side == "left")
+            {
+                return Val.PadLeft(Len, pad);
+
+            }
+            else
+            {
+                return Val.PadRight(Len, pad);
             }    
         }
     }
