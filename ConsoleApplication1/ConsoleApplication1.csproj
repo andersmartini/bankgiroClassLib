@@ -48,9 +48,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary2\ClassLibrary2.csproj">
+    <ProjectReference Include="..\ClassLibrary2\Bankgiro.csproj">
       <Project>{1adddde7-723d-42aa-9ae2-9e1d0f41544d}</Project>
-      <Name>ClassLibrary2</Name>
+      <Name>Bankgiro</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -39,9 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
-    <Compile Include="Class3.cs" />
+    <Compile Include="BetalningsPost.cs" />
+    <Compile Include="slutsummaPost.cs" />
+    <Compile Include="PostBaseClass.cs" />
+    <Compile Include="opningsPost.cs" />
+    <Compile Include="avdragsPost.cs" />
+    <Compile Include="kreditfakturaPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

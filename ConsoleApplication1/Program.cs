@@ -21,14 +21,12 @@ namespace ConsoleApplication1
             oppning.currency = Console.ReadLine();
             posts.Add(oppning.post);
             
-
-
             Console.WriteLine("Skapa en ny betalning,ange belopp:");
             var betalning = new BetalningsPost();
             betalning.belopp = Console.ReadLine();
             Console.WriteLine("ditt bellop skrevs som: " + betalning.belopp + " ange bankgiro som betalningen ska göras TILL: ");
-            betalning.BGNumber = Console.ReadLine();
-            Console.WriteLine("överföring registrerad till mottagare " + betalning.BGNumber + " ange OCR refferens:");
+            betalning.BgNumber = Console.ReadLine();
+            Console.WriteLine("överföring registrerad till mottagare " + betalning.BgNumber + " ange OCR refferens:");
             betalning.OCR = Console.ReadLine();
             Console.WriteLine("OCR skriven som " + betalning.OCR + " ange betalningsdatum:");
             betalning.payDate = Console.ReadLine();
@@ -40,6 +38,14 @@ namespace ConsoleApplication1
             Console.ReadLine();
             posts.Add(betalning.Post);
 
+            Console.WriteLine("Betalning Registrerad! Dags för en slutPost! Denna post kan genereras och behöver inte fyllas i manuellt.");
+            Console.WriteLine("Först kopieras bankgironumret från tidigare betalingsPost " + betalning.BgNumber );
+            var slutSumma = new slutsummaPost();
+            slutSumma.BgNumber = betalning.BgNumber;
+            Console.WriteLine("Sedan räknas antalet betalnings/kreditfaktura poster i avsnittet");
+            slutSumma.numPost ="1";
+            slutSumma.totalBelopp = betalning.belopp;
+            posts.Add(slutSumma.Post);
             Console.WriteLine("din fil med samtliga poster är:");
             foreach (string post in posts)
             {

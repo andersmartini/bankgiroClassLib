@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{1ADDDDE7-723D-42AA-9AE2-9E1D0F41544D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankgiro", "ClassLibrary2\Bankgiro.csproj", "{1ADDDDE7-723D-42AA-9AE2-9E1D0F41544D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{34310B34-2DE4-42A4-868E-CC99ABDD9886}"
 EndProject

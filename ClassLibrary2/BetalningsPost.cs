@@ -11,7 +11,7 @@ namespace Bankgiro
         public string TrKod = "14";
         //Mottagares Bankgironummer, högerställs till och fylls med nollor tills längden är 10 tecken
         private string _BGnumber;
-        public string BGNumber
+        public string BgNumber
         {  
              set 
              {
@@ -82,7 +82,7 @@ namespace Bankgiro
 
         public string Post {
             get {
-                var _post = TrKod + _BGnumber + _OCR + _belopp + _payDate + "     " + _info;
+                var _post = TrKod + _BGnumber + _OCR + _belopp + _payDate + ensureCorrectLength(5) + _info;
                 if (_post.Length == 80)
                 {
                     return _post;
