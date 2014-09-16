@@ -11,54 +11,18 @@ namespace Bankgiro
         public string TrKod = "29";
 
         //Avsändarens bankgironummer
-        private string _BGnumber;
-        public string BgNumber
-        {
-            set
-            {
-                _BGnumber = this.ensureCorrectLength(value, 10, "left", '0');
-            }
-            get
-            {
-                return _BGnumber;
-            }
-        }
-
+        private string BgNumber;
         //Antalet Betalinginsposter (Tk 14 - 17) i detta avsnitt
-        private string _numPost;
-        public string numPost
-        {
-            set
-            {
-                _numPost = this.ensureCorrectLength(value, 8, "left", '0');
-            }
-            get
-            {
-                return _numPost;
-            }
-        }
+        private string numPost;
+        private string negativeTotal;
+        private string totalBelopp;
 
-        public string negativeTotal;
-        private string _totalBelopp;
-        public string totalBelopp
-        {
-            set
-           {
-               _totalBelopp = ensureCorrectLength(value, 12, "left", '0');
-               if (int.Parse(_totalBelopp) < 0)
-               {
-                   negativeTotal = "-";
-               }else
-               {
-                    negativeTotal = " ";
-               }
-           }
-            get 
-            {
-                return _totalBelopp;
-            }
-        }
-
+       public slutsummaPost(string bgNummer,string numpost,string totalbelopp)
+       {
+           this._BGnumber = ensureCorrectLength(bgNummer, 10, left, '0');
+           this.numPost = ensureCorrectLength(numPost, 8, "left", '0');
+           this.totalBelopp = ensureCorrectLength(totalBelopp, 12, "left", '0');
+       }
 
 
         public string Post
