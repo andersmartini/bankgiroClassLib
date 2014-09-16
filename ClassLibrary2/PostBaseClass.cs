@@ -23,10 +23,18 @@ namespace Bankgiro
                 return Val.PadLeft(Len, pad);
 
             }
-            else
+            else if (side == "right")
             {
                 return Val.PadRight(Len, pad);
-            }    
+            }
+            else if (side == "force") 
+            {
+                if (Val.Length == Len)
+                {
+                    return Val;
+                }
+                else { throw new InvalidOperationException(); }
+            }
         }
     }
 }

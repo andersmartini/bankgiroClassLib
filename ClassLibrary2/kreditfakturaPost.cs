@@ -27,5 +27,10 @@ namespace Bankgiro
             }
         }
 
+        public kreditfakturaPost(string bevakning, string bgNumber, string OCR, string belopp, string paydate, string info) : Betalningspost(string bgNumber, string OCR, string belopp, string paydate, string info)
+        {
+            this.bevakning = bevakning;
+        }
+
     }
 }

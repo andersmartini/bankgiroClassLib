@@ -10,75 +10,17 @@ namespace Bankgiro
     {
         public string TrKod = "14";
         //Mottagares Bankgironummer, högerställs till och fylls med nollor tills längden är 10 tecken
-        private string _BGnumber;
-        public string BgNumber
-        {  
-             set 
-             {
-                 _BGnumber = this.ensureCorrectLength(value, 10, "left", '0');
-            }
-            get
-            {
-                return _BGnumber;
-            }
-        } 
-        
-        //OCR-referens ELLER fakturanummer, fylls med blanksteg tills total längd = 25 tecken
-        private string _OCR;
-        public string OCR
-        {
-            set
-            {
-                _OCR = this.ensureCorrectLength(value, 25, "right", ' ');
-                
-            }
-            get
-            {
-                return _OCR;
-}
-        }
-        private string _belopp;
-        public string belopp{
-        set
-        {
-            _belopp = this.ensureCorrectLength(value, 12, "left",'0');
-        }
-        get
-        {
-            return _belopp;
-        }
-
-}
-
-
-        private string _payDate;
-        public string payDate
-        {
-            get
-            {
-                return _payDate;
-            }
-            set
-            {
-                if (value.Length == 6)
-                {
-                    _payDate = value;
-                }else{
-                    Console.WriteLine("date must be 6 digits 'yyMMdd' or 'GENAST' ");
-                }
-            }
-        }
-
-        private string _info;
-        public string info
-        {
-            get {
-                return _info;
-            }
-            set {
-                _info = this.ensureCorrectLength(value, 20, "right", ' ');
-            }
-        }
+        private string BgNumber //Mottagares BankGiroNummer
+        private string OCR;     //OCR-referens ELLER fakturanummer, fylls med blanksteg tills total längd = 25 tecken
+        private string belopp   //belopp som ska betalas
+        private string payDate; //datum för utbetalning
+        private string info;    
+        public BetalningsPost(string bgNumber, string OCR, string belopp, string paydate, string info);
+            this.BgNumber = bgNumber.ensureCorrectLength(value, 10, "left", '0');      
+            this.info = info.ensureCorrectLength(info, 20, "right", ' ');
+            this.payDate = paydate.ensureCorrectLength(paydate, 6, "force", ' ');
+            this.belopp = belopp.ensureCorrectLength(value, 12, "left",'0');
+            this.OCR = OCR.ensureCorrectLength(value, 25, "right", ' ');
 
         public string Post {
             get {
