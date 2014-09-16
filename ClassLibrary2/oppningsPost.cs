@@ -23,8 +23,8 @@ namespace Bankgiro
                 return _BGnumber;
             }
         }
-        public string sendDate = DateTime.Now.ToString(@"yyMMdd");
-        public string product = "LEVERANTÖRSBETALNINGAR";
+        private string sendDate = DateTime.Now.ToString(@"yyMMdd");
+        private string product = "LEVERANTÖRSBETALNINGAR";
         private string _currency;
         public string currency 
         {
@@ -34,16 +34,26 @@ namespace Bankgiro
             }
             set 
             {
-                if (new []{"SEK","EUR"}.Contains(value.ToUpper()))
+                if (value.ToUpper() == "EUR" )
                 {
                     _currency = value.ToUpper();
                 }
                 else 
                 {
-                    throw new InvalidOperationException("invalid currency!");
+                    _currency = "SEK";
                 }
             }
         }
+
+
+        public oppningsPost(string currency, string BgNummer) 
+        {
+            this.currency = currency;
+            this.BGNumber = ensureCorrectLength(BgNummer, 10, "left", '0');
+
+        }
+
+
 
         public string post
         {
