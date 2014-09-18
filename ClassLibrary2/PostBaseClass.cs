@@ -27,13 +27,16 @@ namespace Bankgiro
             {
                 return Val.PadRight(Len, pad);
             }
-            else if (side == "force") 
+            else 
             {
                 if (Val.Length == Len)
                 {
                     return Val;
                 }
-                else { throw new InvalidOperationException(); }
+                else 
+                {
+                    throw new InvalidOperationException();
+                }
             }
         }
     }

@@ -27,7 +27,7 @@ namespace Bankgiro
             }
         }
 
-        public kreditfakturaPost(string bevakning, string bgNumber, string OCR, string belopp, string paydate, string info) : Betalningspost(string bgNumber, string OCR, string belopp, string paydate, string info)
+        public kreditfakturaPost(string bevakning, string bgNumber, string OCR, string belopp, string paydate, string info) : base( bgNumber, OCR, belopp, paydate, info)
         {
             this.bevakning = bevakning;
         }

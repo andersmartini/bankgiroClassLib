@@ -19,7 +19,7 @@ namespace Bankgiro
 
        public slutsummaPost(string bgNummer,string numpost,string totalbelopp)
        {
-           this._BGnumber = ensureCorrectLength(bgNummer, 10, left, '0');
+           this.BgNumber = ensureCorrectLength(bgNummer, 10, "left", '0');
            this.numPost = ensureCorrectLength(numPost, 8, "left", '0');
            this.totalBelopp = ensureCorrectLength(totalBelopp, 12, "left", '0');
        }
@@ -30,7 +30,7 @@ namespace Bankgiro
             get
             {
                 var _post = TrKod + BgNumber + numPost + totalBelopp + negativeTotal;
-                return ensureCorrectLength(_post, 80, "right", ' ');
+                return ensureCorrectLength(_post, 80, "force", ' ');
             }
 
 

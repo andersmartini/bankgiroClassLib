@@ -8,8 +8,13 @@ namespace Bankgiro
 {
     class avdragsPost : BetalningsPost
     {
-        public string TrKod = "15";
-        public avdragsPost(string bgNumber, string OCR, string belopp, string paydate, string info) : base.BetalningsPost(string bgNumber, string OCR, string belopp, string paydate, string info );
+        public avdragsPost(string bgNumber, string OCR, string belopp, string paydate, string info) : base(bgNumber,OCR, belopp, paydate, info )
+        {    
+            this.TrKod = "15";
+        }
+        
+        
+        
         //AvdragsPost är urformad exakt som en BetalningsPost, med TrKod som enda skillnad, samt 
         // att belopp här avser avdragsbelopp istället för betalningsbelopp och att
         // info i avdragsposten bara visas i återredovisning till avsändaren
