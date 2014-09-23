@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="avsnitt.cs" />
+    <Compile Include="BankgiroFil.cs" />
     <Compile Include="BetalningsPost.cs" />
     <Compile Include="slutsummaPost.cs" />
     <Compile Include="PostBaseClass.cs" />

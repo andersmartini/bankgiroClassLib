@@ -9,11 +9,10 @@ namespace Bankgiro
     public class avsnitt
     {
 
-        private string TrKod = "29";
         //Poster som tillsammans bildar ett avsnitt
         private oppningsPost oppning;
         private string betalningar;
-        private avdragsPost[] avdrag;
+        private string avdrag;
         private string fakturor;
         private slutsummaPost slutpost;
         
@@ -36,6 +35,12 @@ namespace Bankgiro
         {
             var faktura = new kreditfakturaPost(bevakning, bgNumber, OCR, belopp, paydate, info);
             fakturor = fakturor + faktura.Post + Environment.NewLine;
+        }
+        public void addAvdrag(string bgNumber, string OCR, string belopp, string paydate, string info) 
+        {
+            var dragav = new avdragsPost(bgNumber, OCR, belopp, paydate, info);
+            avdrag += Environment.NewLine + dragav;
+            sum += Int32.Parse(belopp);
         }
 
 
