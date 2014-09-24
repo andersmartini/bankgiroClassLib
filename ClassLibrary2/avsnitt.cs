@@ -15,11 +15,10 @@ namespace Bankgiro
         private string avdrag;
         private string fakturor;
         private slutsummaPost slutpost;
-        
 
         //hjälp-variablar
         private int sum;
-
+        private int numPay;
 
         public avsnitt(string bgNummer, string valuta) 
         {
@@ -29,7 +28,8 @@ namespace Bankgiro
         {
             var betalning = new BetalningsPost(bgNumber, OCR, belopp, paydate, info);
                 betalningar = betalningar +  betalning.Post + Environment.NewLine;
-                sum += Int32.Parse(belopp);
+                sum = Int32.Parse(belopp) + sum;
+                numPay = numPay + 1;
         }
         public void addKreditFaktura(string bevakning, string bgNumber, string OCR, string belopp, string paydate, string info)
         {
@@ -48,10 +48,11 @@ namespace Bankgiro
         public string format() 
         {
             var Bg = this.oppning.BGNumber;
-            var numPay = this.betalningar.Count().ToString();
+            var numPay = this.numPay.ToString();
             var summa = sum.ToString();
-            slutpost = new slutsummaPost(Bg, numPay, summa);
-            var result = oppning.post + betalningar + fakturor + avdrag + slutpost.Post;
+            var Np = numPay.ToString();
+            slutpost = new slutsummaPost(Bg, Np, summa);
+            var result = oppning.post + Environment.NewLine + betalningar + fakturor + avdrag + slutpost.Post;
             return result;
         }
 

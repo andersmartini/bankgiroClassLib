@@ -35,6 +35,7 @@ namespace Bankgiro
                 }
                 else 
                 {
+                    //ensureCorrectLength was called as "force", and the length was incorrect... 
                     throw new InvalidOperationException();
                 }
             }
